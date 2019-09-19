@@ -12,10 +12,11 @@ mydata <- read.csv(file = "./household_power_consumption.txt",
                    header = TRUE, 
                    sep=";")
 mydata <- subset(mydata, Date=="1/2/2007" | Date=="2/2/2007") # Subset dataset
-mydata$Date <- strptime(mydata$Date, "%d/%m/%Y") # Format columnn to date
-#as.Date(mydata$Date, "%m/%d/%Y")
-mydata$Global_active_power <- as.character(mydata$Global_active_power) # Format column to character
-mydata$Global_active_power <- as.numeric(mydata$Global_active_power) # Format column to numeric
+mydata$Time <- paste(mydata$Date, mydata$Time)
+mydata$Date <- as.Date(test$Date, "%m/%d/%Y")
+mydata$Time <- strptime(mydata$Time, "%m/%d/%Y %H:%M:%S")
+
+
 
 
 ##-----------------------------------------------------------------------------------
