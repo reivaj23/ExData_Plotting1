@@ -14,8 +14,7 @@ mydata <- read.csv(file = "./household_power_consumption.txt",
            sep=";")
 mydata <- subset(mydata, Date=="1/2/2007" | Date=="2/2/2007") # Subset dataset
 mydata$Date <- strptime(mydata$Date, "%d/%m/%Y") # Format columnn to date
-mydata$Global_active_power <- as.character(mydata$Global_active_power) # Format column to character
-mydata$Global_active_power <- as.numeric(mydata$Global_active_power) # Format column to numeric
+mydata$Global_active_power <- as.numeric(as.character(mydata$Global_active_power)) # Format column to numeric
 
 
 ##-----------------------------------------------------------------------------------
